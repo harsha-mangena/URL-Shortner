@@ -20,7 +20,7 @@ Method for getting  LongURL
 @params : shortUrl -> String 
 '''
 def getLongUrl(shortUrl)->String:
-    longUrl = DataStore.getlongUrl(shortUrl)
+    longUrl = DataStore.getlongUrl(shortUrl.rstrip().lstrip())
     return longUrl
 
 '''
@@ -28,6 +28,6 @@ Methos for getting shortURL
 @params : longUrl -> String
 '''
 def getShortUrl(longUrl) -> String:
-    shortUrl = DataStore.getshortUrl(longUrl)
+    shortUrl = DataStore.getshortUrl(longUrl.lstrip().rstrip())
     return shortUrl
     
