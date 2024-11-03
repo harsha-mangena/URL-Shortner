@@ -1,7 +1,7 @@
-from random import randint
 from tokenize import String
 import DataStore
 import Error
+import secrets
 
 '''
 Method for generating and storing the longURL, shortURL
@@ -9,7 +9,7 @@ Method for generating and storing the longURL, shortURL
 def ShortUrl(longUrl, tokens)->String:
     shortUrl = "https://short/"
     for i in range(8):
-        shortUrl += tokens[randint(0, len(tokens)-1)]
+        shortUrl += tokens[secrets.SystemRandom().randint(0, len(tokens)-1)]
     #Storing in Database
     DataStore.store(shortUrl, longUrl)
     #Return ShortUrl
